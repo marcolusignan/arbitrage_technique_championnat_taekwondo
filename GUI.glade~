@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkWindow" id="f_principale">
+    <property name="can_focus">False</property>
+    <property name="border_width">10</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkGrid" id="g_principal">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="margin_left">10</property>
+        <property name="margin_right">10</property>
+        <property name="margin_top">10</property>
+        <property name="margin_bottom">10</property>
+        <property name="row_spacing">25</property>
+        <property name="column_spacing">25</property>
+        <property name="row_homogeneous">True</property>
+        <property name="column_homogeneous">True</property>
+        <child>
+          <object class="GtkFrame" id="f_poomsae_categorie">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">5</property>
+            <property name="margin_bottom">5</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">none</property>
+            <child>
+              <object class="GtkAlignment">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="top_padding">5</property>
+                <property name="bottom_padding">5</property>
+                <property name="left_padding">5</property>
+                <property name="right_padding">5</property>
+                <child>
+                  <object class="GtkGrid" id="g_poomsae_categorie">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="row_spacing">5</property>
+                    <property name="column_spacing">5</property>
+                    <property name="row_homogeneous">True</property>
+                    <property name="column_homogeneous">True</property>
+                    <child>
+                      <object class="GtkLabel" id="l_categorie">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Catégorie</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_poomsae1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Poomsae 1</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_poomsae2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Pommsae 2</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="c_poomsae1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active_id">1</property>
+                        <items>
+                          <item id="1" translatable="yes">1 : Il Jang</item>
+                          <item id="2" translatable="yes">2 : Yi Jang</item>
+                          <item id="3" translatable="yes">3 : Sam Jang</item>
+                          <item id="4" translatable="yes">4 : Sa Jang</item>
+                          <item id="5" translatable="yes">5 : Ho Jang</item>
+                          <item id="6" translatable="yes">6 : Youk Jang</item>
+                          <item id="7" translatable="yes">7 : Tchil Jang</item>
+                          <item id="8" translatable="yes">8 : Pal Jang</item>
+                          <item id="9" translatable="yes">1S : Koryo</item>
+                          <item id="10" translatable="yes">2S : Keumgan</item>
+                          <item id="11" translatable="yes">3S : Taebaek</item>
+                          <item id="12" translatable="yes">4S : Pyongwon</item>
+                          <item id="13" translatable="yes">5S : Sipjin</item>
+                          <item id="14" translatable="yes">6S : Jitae</item>
+                          <item id="15" translatable="yes">7S : Hansu</item>
+                          <item id="16" translatable="yes">8S : Ilyeo</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="c_categorie">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active_id">M Cadet</property>
+                        <items>
+                          <item id="M Cadet" translatable="yes">M Cadet</item>
+                          <item id="F Cadet" translatable="yes">F Cadet</item>
+                          <item id="F Junior" translatable="yes">M Junior</item>
+                          <item id="F Junior" translatable="yes">F Junior</item>
+                          <item id="M Senior 1" translatable="yes">M Senior 1</item>
+                          <item id="F Senior 1" translatable="yes">F Senior 1</item>
+                          <item id="M Senior 2" translatable="yes">M Senior 2</item>
+                          <item id="F Senior 2" translatable="yes">F Senior 2</item>
+                          <item id="M Master 1" translatable="yes">M Master 1</item>
+                          <item id="F Master 1" translatable="yes">F Master 1</item>
+                          <item id="M Master 2" translatable="yes">M Master 2</item>
+                          <item id="F Master 2" translatable="yes">F Master 2</item>
+                          <item id="M Master 3" translatable="yes">M Master 3</item>
+                          <item id="F Master 3" translatable="yes">F Master 3</item>
+                          <item id="M Master 4" translatable="yes">M Master 4</item>
+                          <item id="F Master 4" translatable="yes">F Master 4</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBoxText" id="c_poomsae2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active_id">0</property>
+                        <items>
+                          <item id="0" translatable="yes">AUCUN</item>
+                          <item id="1" translatable="yes">1 : Il Jang</item>
+                          <item id="2" translatable="yes">2 : Yi Jang</item>
+                          <item id="3" translatable="yes">3 : Sam Jang</item>
+                          <item id="4" translatable="yes">4 : Sa Jang</item>
+                          <item id="5" translatable="yes">5 : Ho Jang</item>
+                          <item id="6" translatable="yes">6 : Youk Jang</item>
+                          <item id="7" translatable="yes">7 : Tchil Jang</item>
+                          <item id="8" translatable="yes">8 : Pal Jang</item>
+                          <item id="9" translatable="yes">1S : Koryo</item>
+                          <item id="10" translatable="yes">2S : Keumgan</item>
+                          <item id="11" translatable="yes">3S : Taebaek</item>
+                          <item id="12" translatable="yes">4S : Pyongwon</item>
+                          <item id="13" translatable="yes">5S : Sipjin</item>
+                          <item id="14" translatable="yes">6S : Jitae</item>
+                          <item id="15" translatable="yes">7S : Hansu</item>
+                          <item id="16" translatable="yes">8S : Ilyeo</item>
+                        </items>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="b_poomsae_categorie">
+                        <property name="label" translatable="yes">Valider</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="margin_top">10</property>
+                        <signal name="clicked" handler="get_categorie_en_cours" object="c_categorie" swapped="no"/>
+                        <signal name="clicked" handler="get_poomsae1_en_cours" object="c_poomsae1" swapped="no"/>
+                        <signal name="clicked" handler="get_poomsae2_en_cours" object="c_poomsae2" swapped="no"/>
+                        <signal name="clicked" handler="initialiser_competiteur_en_cours" object="l_nom_prenom" swapped="no"/>
+                        <signal name="clicked" handler="initialiser_ordre_passage" object="l_orde_passage" swapped="no"/>
+                        <signal name="clicked" handler="initialiser_tour_en_cours" object="l_tour" swapped="no"/>
+                        <signal name="clicked" handler="message_categorie_vide" object="md" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">3</property>
+                        <property name="width">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="l_f_poomsae_categorie">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">25</property>
+                <property name="margin_right">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">10</property>
+                <property name="label" translatable="yes">Choix Poomsae et Catégorie</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                  <attribute name="underline" value="True"/>
+                </attributes>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="f_competiteur_en_cours">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">5</property>
+            <property name="margin_bottom">5</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">none</property>
+            <child>
+              <object class="GtkAlignment">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkGrid" id="g_competiteur_en_cours">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="row_spacing">5</property>
+                    <property name="column_spacing">5</property>
+                    <property name="row_homogeneous">True</property>
+                    <property name="column_homogeneous">True</property>
+                    <child>
+                      <object class="GtkLabel" id="l_tour">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">demi-finale</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_orde_passage">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">xx/xx</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_nom_prenom">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="margin_top">10</property>
+                        <property name="label" translatable="yes">NOM Prénom</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                        <property name="width">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_note_poomsae1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Poomsae 1 : 0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">2</property>
+                        <property name="height">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_note_poomsae2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Poomsae 2 : 0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                        <property name="height">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="l_f_competiteur_en_cours">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">25</property>
+                <property name="margin_right">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">10</property>
+                <property name="label" translatable="yes">Compétiteur en cours</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                  <attribute name="underline" value="True"/>
+                </attributes>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="f_notes">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">5</property>
+            <property name="margin_bottom">5</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">none</property>
+            <child>
+              <object class="GtkAlignment">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkGrid" id="g_notes">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="row_spacing">5</property>
+                    <property name="column_spacing">5</property>
+                    <property name="row_homogeneous">True</property>
+                    <property name="column_homogeneous">True</property>
+                    <child>
+                      <object class="GtkEntry" id="e_arbitre1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="e_arbitre2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="e_arbitre3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">2</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="e_arbitre4">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="e_arbitre5">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_arbitre1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Arbitre 1</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_arbitre2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Arbitre 2</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_arbitre3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Arbitre 3</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">2</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_arbitre4">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Arbitre 4</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="l_arbitre5">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Arbitre 5</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="b_notes">
+                        <property name="label" translatable="yes">Valider</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <signal name="clicked" handler="get_note_arbitre_1" object="e_arbitre1" swapped="no"/>
+                        <signal name="clicked" handler="get_note_arbitre_2" object="e_arbitre2" swapped="no"/>
+                        <signal name="clicked" handler="get_note_arbitre_3" object="e_arbitre3" swapped="no"/>
+                        <signal name="clicked" handler="get_note_arbitre_4" object="e_arbitre4" swapped="no"/>
+                        <signal name="clicked" handler="get_note_arbitre_5" object="e_arbitre5" swapped="no"/>
+                        <signal name="clicked" handler="message_note_invalide" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="left_attach">2</property>
+                        <property name="top_attach">2</property>
+                        <property name="height">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="l_f_notes">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">25</property>
+                <property name="margin_right">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">10</property>
+                <property name="label" translatable="yes">Notes</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                  <attribute name="underline" value="True"/>
+                </attributes>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="f_administration">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">5</property>
+            <property name="margin_bottom">5</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">none</property>
+            <child>
+              <object class="GtkAlignment">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkGrid" id="g_administration">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="row_spacing">5</property>
+                    <property name="column_spacing">5</property>
+                    <property name="row_homogeneous">True</property>
+                    <property name="column_homogeneous">True</property>
+                    <child>
+                      <object class="GtkButton" id="b_competiteur_suivant">
+                        <property name="label" translatable="yes">Competiteur Suivant</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                        <property name="width">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="b_classement">
+                        <property name="label" translatable="yes">Afficher Classement</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                        <property name="width">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="l_f_administration">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">25</property>
+                <property name="margin_right">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">10</property>
+                <property name="label" translatable="yes">Administration</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                  <attribute name="underline" value="True"/>
+                </attributes>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMessageDialog" id="md">
+    <property name="can_focus">False</property>
+    <property name="window_position">center</property>
+    <property name="type_hint">dialog</property>
+    <property name="gravity">center</property>
+    <property name="transient_for">f_principale</property>
+    <property name="message_type">warning</property>
+    <property name="buttons">close</property>
+    <property name="text" translatable="yes">Attention !</property>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="homogeneous">True</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
