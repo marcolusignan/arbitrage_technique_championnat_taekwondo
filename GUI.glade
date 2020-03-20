@@ -460,6 +460,7 @@
                         <signal name="clicked" handler="get_note_arbitre_4" object="e_arbitre4" swapped="no"/>
                         <signal name="clicked" handler="get_note_arbitre_5" object="e_arbitre5" swapped="no"/>
                         <signal name="clicked" handler="message_note_invalide" object="md" swapped="no"/>
+                        <signal name="clicked" handler="set_note_poomsae_1" object="l_note_poomsae1" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">2</property>
