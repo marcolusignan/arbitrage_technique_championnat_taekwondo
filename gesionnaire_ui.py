@@ -21,7 +21,7 @@ class GestionnaireUI():
         self.poomsae1_en_cours=""
         self.poomsae2_en_cours=""
         self.nb_poomsae_a_presenter=2
-        self.index_poomsae_en_cours=1
+        self.index_poomsae_en_cours=0
         self.passage_termine=False
 
         self.tour_en_cours=""
@@ -29,7 +29,9 @@ class GestionnaireUI():
         self.notes_arbitres=[]
         self.notes_valides=False
 
+        #stockage des ID des widgets
         self.entries_arbitres=[]
+        self.labels_notes_poomsaes=[]
 
 #------------Callbacks du bouton Valider rubrique choix catégorie/poomsae-----------------#
     def get_categorie_en_cours(self,cbbox):
@@ -124,36 +126,46 @@ class GestionnaireUI():
             self.notes_arbitres=[float(note)for note in self.notes_arbitres]
         index_en_erreur=""
 
-    def set_note_poomsae_1(self,l_note_poomsae1):
-        """affecte la moyenne des notes arbitres au competiteur en cours et l'affiche dans l'UI admin"""
-        if self.notes_valides==True:
-            note_poomsae1=0
-            #calcul, arrondi et affectation de la moyenne
+    def get_label_poomsae_1(self,l_note_poomsae1):
+        """stocke l'ID du label poomsae1 dans self.labels_notes_poomsaes"""
+        if len(self.labels_notes_poomsaes)<1:
+            self.labels_notes_poomsaes.append(l_note_poomsae1)
+    def get_label_poomsae_2(self,l_note_poomsae2):
+        """stocke l'ID du label poomsae2 dans self.labels_notes_poomsaes"""
+        if len(self.labels_notes_poomsaes)<2:
+            self.labels_notes_poomsaes.append(l_note_poomsae2)
+
+    def set_note_poomsae_en_cours(self,widget):
+        """Calcule la note du poomsae en cours, l'affecte au competiteur en cours et l'affiche dans le label de l'UI admin"""
+        if self.notes_valides==True and self.passage_termine==False:
+            #calcule la note
+            note_poomsae_en_cours=0
             for note in self.notes_arbitres:
-                note_poomsae1+=note
-            note_poomsae1/=len(self.notes_arbitres)
-            note_poomsae1=round(note_poomsae1,3)
-            self.competiteur_en_cours.note_poomsae1=note_poomsae1
-            l_note_poomsae1.set_text("Poomsae 1 : {}".format(note_poomsae1))
+                note_poomsae_en_cours+=note
+            note_poomsae_en_cours/=len(self.notes_arbitres)
+            note_poomsae_en_cours=round(note_poomsae_en_cours,3)
+            #vide la liste des notes et les entries arbitres
             self.notes_arbitres.clear()
-            # autorise le passage au poomsae2 s'il existe, sinon indique que le passage est terminé
+            for entry in self.entries_arbitres:
+                entry.set_text("")
+            self.entries_arbitres.clear()
+            # cas sans poomsae 2
             if self.nb_poomsae_a_presenter==1:
-                self.passage_termine=True
-                #vide les entries arbitres
-                for entry in self.entries_arbitres:
-                    entry.set_text("")
-                    self.entries_arbitres.clear()
-            else:
+                self.competiteur_en_cours.note_poomsae1=note_poomsae_en_cours
+                self.labels_notes_poomsaes[0].set_text("Poomsae 1 : {}".format(note_poomsae_en_cours))
+                self.labels_notes_poomsaes[1].set_text("Poomsae 2 : NC ")
+                self.passage_termine=True                        
+            # cas passage 1 poomsae 2
+            elif self.nb_poomsae_a_presenter==2 and self.index_poomsae_en_cours==0:
+                self.competiteur_en_cours.note_poomsae1=note_poomsae_en_cours
+                self.labels_notes_poomsaes[0].set_text("Poomsae 1 : {}".format(note_poomsae_en_cours))
                 self.index_poomsae_en_cours+=1
-        else:
-            pass
-    
-    def set_note_poomsae_2(self,l_note_poomsae2):
-        if self.notes_valides==True and self.index_poomsae_en_cours==2:
-            pass
-        else:
-            pass
-    
-    def 
+            # cas 2e passage poomsae 2
+            elif self.nb_poomsae_a_presenter==2 and self.index_poomsae_en_cours==1:
+                self.competiteur_en_cours.note_poomsae2=note_poomsae_en_cours
+                self.labels_notes_poomsaes[1].set_text("Poomsae 2 : {}".format(note_poomsae_en_cours))
+                self.index_poomsae_en_cours=0
+                self.passage_termine=True
+
 
     

@@ -450,17 +450,19 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="b_notes">
-                        <property name="label" translatable="yes">Valider</property>
+                        <property name="label" translatable="yes">Valider note</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <signal name="clicked" handler="get_label_poomsae_1" object="l_note_poomsae1" swapped="no"/>
+                        <signal name="clicked" handler="get_label_poomsae_2" object="l_note_poomsae2" swapped="no"/>
                         <signal name="clicked" handler="get_note_arbitre_1" object="e_arbitre1" swapped="no"/>
                         <signal name="clicked" handler="get_note_arbitre_2" object="e_arbitre2" swapped="no"/>
                         <signal name="clicked" handler="get_note_arbitre_3" object="e_arbitre3" swapped="no"/>
                         <signal name="clicked" handler="get_note_arbitre_4" object="e_arbitre4" swapped="no"/>
                         <signal name="clicked" handler="get_note_arbitre_5" object="e_arbitre5" swapped="no"/>
                         <signal name="clicked" handler="message_note_invalide" object="md" swapped="no"/>
-                        <signal name="clicked" handler="set_note_poomsae_1" object="l_note_poomsae1" swapped="no"/>
+                        <signal name="clicked" handler="set_note_poomsae_en_cours" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">2</property>
