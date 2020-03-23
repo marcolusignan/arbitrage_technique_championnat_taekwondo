@@ -74,6 +74,17 @@ class GestionnaireUI():
             self.tour_en_cours="1er Tour"
         l_tour_en_cours.set_text(self.tour_en_cours)
 
+    #initialisation des labels sur la vue competiteur
+    def set_identite_competiteur_su_vc(self,l_identite_competiteur_vc):
+        l_identite_competiteur_vc.set_text("{} {}".format(self.competiteur_en_cours.nom,self.competiteur_en_cours.prenom))
+    def set_tour_categorie_sur_vc(self,l_tour_categorie_vc):
+        l_tour_categorie_vc.set_text("{}  {}".format(self.tour_en_cours,self.categorie_en_cours))
+    def set_poomsae1_sur_vc(self,l_poomsae1_vc):
+        l_poomsae1_vc.set_text("Poomsae {}".format(self.poomsae1_en_cours))
+    def set_poomsae2_sur_vc(self,l_poomsae2_vc):
+        l_poomsae2_vc.set_text("Poomsae {}".format(self.poomsae2_en_cours))
+    #prévoir récupération de l'ID des labels poomsae VC pour mettre en gras le poomsae en cours
+
 #--------------Callbacks des notes arbitres-----------------------------------------------#
 
     def get_note_arbitre_1(self,e_arb1):
@@ -135,7 +146,7 @@ class GestionnaireUI():
         if len(self.labels_notes_poomsaes)<2:
             self.labels_notes_poomsaes.append(l_note_poomsae2)
 
-    def set_note_poomsae_en_cours(self,widget):
+    def set_note_poomsae_en_cours(self,l_note_vc):
         """Calcule la note du poomsae en cours, l'affecte au competiteur en cours et l'affiche dans le label de l'UI admin"""
         if self.notes_valides==True and self.passage_termine==False:
             #calcule la note
@@ -144,6 +155,7 @@ class GestionnaireUI():
                 note_poomsae_en_cours+=note
             note_poomsae_en_cours/=len(self.notes_arbitres)
             note_poomsae_en_cours=round(note_poomsae_en_cours,3)
+            l_note_vc.set_text("{}".format(note_poomsae_en_cours))
             #vide la liste des notes et les entries arbitres
             self.notes_arbitres.clear()
             for entry in self.entries_arbitres:
@@ -166,4 +178,24 @@ class GestionnaireUI():
                 self.labels_notes_poomsaes[1].set_text("Note Poomsae 2 : \n {}".format(note_poomsae_en_cours))
                 self.index_poomsae_en_cours=0
                 self.passage_termine=True
+
+# ajouter un message d erreur si validation alors que les notes sont déja validées
+
+
+#-------------------Callbacks compétiteur suivant-------------------------------------------#
+
+# 
+# message d'erreur si self.passage_termine==False
+# message d'erreur si le competiteur en cours est le dernier de sa catégorie  
+#
+# initialisation : 
+# - remettre a False self.passage_termine 
+# - remettre a 0 index poomsae en cours
+# - vider les labels note poomsae 1 et note poomsae 2
+# - vider le label note sur vc
+# 
+# chargement du competiteur suivant(modifier self.competiteur_en_cours) et mise a jour des labels :
+#   - nom prenom sur UI admin
+#   - nom prenom sur vc
+#   - incrementer self.ordre_passage_competiteur_en_cours et mettre a jour label ordre passage
 

@@ -36,7 +36,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="l_poomsae_vc">
+          <object class="GtkLabel" id="l_poomsae1_vc">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">end</property>
@@ -71,7 +71,7 @@
           <object class="GtkLabel" id="l_note_vc">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">10.35</property>
+            <property name="label" translatable="yes">00.00</property>
             <property name="yalign">0</property>
             <attributes>
               <attribute name="scale" value="10"/>
@@ -85,7 +85,20 @@
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkLabel" id="l_poomsae2_vc">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">start</property>
+            <property name="label" translatable="yes">Poomsae : Pal Jang</property>
+            <property name="justify">right</property>
+            <attributes>
+              <attribute name="scale" value="2"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="left_attach">3</property>
+            <property name="top_attach">1</property>
+          </packing>
         </child>
         <child>
           <placeholder/>
@@ -258,7 +271,7 @@
                         <property name="can_focus">False</property>
                         <property name="active_id">0</property>
                         <items>
-                          <item id="0" translatable="yes">AUCUN</item>
+                          <item id="0" translatable="yes">: AUCUN</item>
                           <item id="1" translatable="yes">1 : Il Jang</item>
                           <item id="2" translatable="yes">2 : Yi Jang</item>
                           <item id="3" translatable="yes">3 : Sam Jang</item>
@@ -296,6 +309,10 @@
                         <signal name="clicked" handler="initialiser_ordre_passage" object="l_orde_passage" swapped="no"/>
                         <signal name="clicked" handler="initialiser_tour_en_cours" object="l_tour" swapped="no"/>
                         <signal name="clicked" handler="message_categorie_vide" object="md" swapped="no"/>
+                        <signal name="clicked" handler="set_identite_competiteur_su_vc" object="l_nom_prenom_vc" swapped="no"/>
+                        <signal name="clicked" handler="set_poomsae1_sur_vc" object="l_poomsae1_vc" swapped="no"/>
+                        <signal name="clicked" handler="set_poomsae2_sur_vc" object="l_poomsae2_vc" swapped="no"/>
+                        <signal name="clicked" handler="set_tour_categorie_sur_vc" object="l_tour_categorie_vc" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -582,7 +599,7 @@ N/A</property>
                         <signal name="clicked" handler="get_note_arbitre_4" object="e_arbitre4" swapped="no"/>
                         <signal name="clicked" handler="get_note_arbitre_5" object="e_arbitre5" swapped="no"/>
                         <signal name="clicked" handler="message_note_invalide" object="md" swapped="no"/>
-                        <signal name="clicked" handler="set_note_poomsae_en_cours" swapped="no"/>
+                        <signal name="clicked" handler="set_note_poomsae_en_cours" object="l_note_vc" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">2</property>
@@ -644,7 +661,6 @@ N/A</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <signal name="clicked" handler="test" object="l_nom_prenom_vc" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
