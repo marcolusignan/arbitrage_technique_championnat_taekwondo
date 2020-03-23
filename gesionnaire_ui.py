@@ -152,20 +152,18 @@ class GestionnaireUI():
             # cas sans poomsae 2
             if self.nb_poomsae_a_presenter==1:
                 self.competiteur_en_cours.note_poomsae1=note_poomsae_en_cours
-                self.labels_notes_poomsaes[0].set_text("Poomsae 1 : {}".format(note_poomsae_en_cours))
-                self.labels_notes_poomsaes[1].set_text("Poomsae 2 : NC ")
+                self.labels_notes_poomsaes[0].set_text("Note Poomsae 1 : \n {}".format(note_poomsae_en_cours))
+                self.labels_notes_poomsaes[1].set_text("Note Poomsae 2 : \n NC ")
                 self.passage_termine=True                        
             # cas passage 1 poomsae 2
             elif self.nb_poomsae_a_presenter==2 and self.index_poomsae_en_cours==0:
                 self.competiteur_en_cours.note_poomsae1=note_poomsae_en_cours
-                self.labels_notes_poomsaes[0].set_text("Poomsae 1 : {}".format(note_poomsae_en_cours))
+                self.labels_notes_poomsaes[0].set_text("Note Poomsae 1 : \n {}".format(note_poomsae_en_cours))
                 self.index_poomsae_en_cours+=1
             # cas 2e passage poomsae 2
             elif self.nb_poomsae_a_presenter==2 and self.index_poomsae_en_cours==1:
                 self.competiteur_en_cours.note_poomsae2=note_poomsae_en_cours
-                self.labels_notes_poomsaes[1].set_text("Poomsae 2 : {}".format(note_poomsae_en_cours))
+                self.labels_notes_poomsaes[1].set_text("Note Poomsae 2 : \n {}".format(note_poomsae_en_cours))
                 self.index_poomsae_en_cours=0
                 self.passage_termine=True
 
-
-    
