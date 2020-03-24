@@ -146,6 +146,7 @@ class GestionnaireUI():
         if len(self.labels_notes_poomsaes)<2:
             self.labels_notes_poomsaes.append(l_note_poomsae2)
 
+# ajouter un effet de transition du poomsae 1 à 2 sur vc
     def set_note_poomsae_en_cours(self,l_note_vc):
         """Calcule la note du poomsae en cours, l'affecte au competiteur en cours et l'affiche dans le label de l'UI admin"""
         if self.notes_valides==True and self.passage_termine==False:
