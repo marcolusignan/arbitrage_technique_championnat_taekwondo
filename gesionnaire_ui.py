@@ -43,7 +43,7 @@ class GestionnaireUI():
     def get_poomsae2_en_cours(self,cbbox):
         """récupère le poomsae 2 choisi et modifie le nb de poomsae a présenter si AUCUN est choisi"""
         self.poomsae2_en_cours=cbbox.get_active_text()
-        if self.poomsae2_en_cours=="AUCUN":
+        if self.poomsae2_en_cours==": AUCUN":
             self.nb_poomsae_a_presenter=1
     
     def initialiser_competiteur_en_cours(self,l_nom_prenom):
@@ -182,13 +182,19 @@ class GestionnaireUI():
 
 # ajouter un message d erreur si validation alors que les notes sont déja validées
 
-
 #-------------------Callbacks compétiteur suivant-------------------------------------------#
 
-# 
-# message d'erreur si self.passage_termine==False
-# message d'erreur si le competiteur en cours est le dernier de sa catégorie  
-#
+    def message_competiteur_suivant_invalide(self,md):
+        """affiche une boite de dialogue d'erreur si le compétiteur en cours n'a pas terminé son passage ou si tous les compétiteurs sont passés"""
+        if self.passage_termine==False:
+            md.format_secondary_text("{} {} n'a pas terminé son passage".format(self.competiteur_en_cours.nom,self.competiteur_en_cours.prenom))
+            md.run()
+            md.hide()
+        elif self.passage_termine==True and self.ordre_passage_competiteur_en_cours>=self.nb_competiteur_categorie_en_cours:
+            md.format_secondary_text("Tous les compétiteurs de la catégorie sont passés")
+            md.run()
+            md.hide()
+            
 # initialisation : 
 # - remettre a False self.passage_termine 
 # - remettre a 0 index poomsae en cours

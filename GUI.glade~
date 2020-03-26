@@ -44,6 +44,7 @@
             <property name="justify">right</property>
             <attributes>
               <attribute name="scale" value="2"/>
+              <attribute name="foreground" value="#a4a400000000"/>
             </attributes>
           </object>
           <packing>
