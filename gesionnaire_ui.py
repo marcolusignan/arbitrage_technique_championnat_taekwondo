@@ -32,6 +32,7 @@ class GestionnaireUI():
         #stockage des ID des widgets
         self.entries_arbitres=[]
         self.labels_notes_poomsaes=[]
+        self.labels_poomsaes_sur_vc=[]
 
 #------------Callbacks du bouton Valider rubrique choix catégorie/poomsae-----------------#
     def get_categorie_en_cours(self,cbbox):
@@ -80,9 +81,17 @@ class GestionnaireUI():
     def set_tour_categorie_sur_vc(self,l_tour_categorie_vc):
         l_tour_categorie_vc.set_text("{}  {}".format(self.tour_en_cours,self.categorie_en_cours))
     def set_poomsae1_sur_vc(self,l_poomsae1_vc):
-        l_poomsae1_vc.set_text("Poomsae {}".format(self.poomsae1_en_cours))
+        """Affiche le nom du 1er poomsae sur la vue compétiteur, et stocke l'ID du label"""
+        
+        l_poomsae1_vc.set_markup("""Poomsae <span foreground="red">{}</span>""".format(self.poomsae1_en_cours))
+        if len(self.labels_poomsaes_sur_vc)<2:
+            self.labels_poomsaes_sur_vc.append(l_poomsae1_vc)
     def set_poomsae2_sur_vc(self,l_poomsae2_vc):
-        l_poomsae2_vc.set_text("Poomsae {}".format(self.poomsae2_en_cours))
+        """Affiche le nom du 2 poomsae sur la vue compétiteur, et stocke l'ID du label"""
+        
+        l_poomsae2_vc.set_markup("""Poomsae <span foreground="black">{}</span>""".format(self.poomsae2_en_cours))        
+        if len(self.labels_poomsaes_sur_vc)<2:
+            self.labels_poomsaes_sur_vc.append(l_poomsae2_vc)
     #prévoir récupération de l'ID des labels poomsae VC pour mettre en gras le poomsae en cours
 
 #--------------Callbacks des notes arbitres-----------------------------------------------#
@@ -146,9 +155,9 @@ class GestionnaireUI():
         if len(self.labels_notes_poomsaes)<2:
             self.labels_notes_poomsaes.append(l_note_poomsae2)
 
-# ajouter un effet de transition du poomsae 1 à 2 sur vc
     def set_note_poomsae_en_cours(self,l_note_vc):
-        """Calcule la note du poomsae en cours, l'affecte au competiteur en cours et l'affiche dans le label de l'UI admin"""
+        """Calcule la note du poomsae en cours, l'affecte au competiteur en cours et l'affiche dans le label de l'UI admin
+        change élagement la couleur label poomsae 1 et 2 sur VC en fonction du poomsae en cours"""
         if self.notes_valides==True and self.passage_termine==False:
             #calcule la note
             note_poomsae_en_cours=0
@@ -173,10 +182,14 @@ class GestionnaireUI():
                 self.competiteur_en_cours.note_poomsae1=note_poomsae_en_cours
                 self.labels_notes_poomsaes[0].set_text("Note Poomsae 1 : \n {}".format(note_poomsae_en_cours))
                 self.index_poomsae_en_cours+=1
+                self.labels_poomsaes_sur_vc[0].set_markup("""Poomsae <span foreground="black">{}</span>""".format(self.poomsae1_en_cours))
+                self.labels_poomsaes_sur_vc[1].set_markup("""Poomsae <span foreground="red">{}</span>""".format(self.poomsae2_en_cours))
             # cas 2e passage poomsae 2
             elif self.nb_poomsae_a_presenter==2 and self.index_poomsae_en_cours==1:
                 self.competiteur_en_cours.note_poomsae2=note_poomsae_en_cours
                 self.labels_notes_poomsaes[1].set_text("Note Poomsae 2 : \n {}".format(note_poomsae_en_cours))
+                self.labels_poomsaes_sur_vc[1].set_markup("""Poomsae <span foreground="black">{}</span>""".format(self.poomsae1_en_cours))
+                self.labels_poomsaes_sur_vc[0].set_markup("""Poomsae <span foreground="red">{}</span>""".format(self.poomsae2_en_cours))
                 self.index_poomsae_en_cours=0
                 self.passage_termine=True
 
@@ -205,4 +218,3 @@ class GestionnaireUI():
 #   - nom prenom sur UI admin
 #   - nom prenom sur vc
 #   - incrementer self.ordre_passage_competiteur_en_cours et mettre a jour label ordre passage
-
