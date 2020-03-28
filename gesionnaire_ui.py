@@ -92,7 +92,7 @@ class GestionnaireUI():
         l_poomsae2_vc.set_markup("""Poomsae <span foreground="black">{}</span>""".format(self.poomsae2_en_cours))        
         if len(self.labels_poomsaes_sur_vc)<2:
             self.labels_poomsaes_sur_vc.append(l_poomsae2_vc)
-    #prévoir récupération de l'ID des labels poomsae VC pour mettre en gras le poomsae en cours
+   
 
 #--------------Callbacks des notes arbitres-----------------------------------------------#
 
@@ -188,8 +188,6 @@ class GestionnaireUI():
             elif self.nb_poomsae_a_presenter==2 and self.index_poomsae_en_cours==1:
                 self.competiteur_en_cours.note_poomsae2=note_poomsae_en_cours
                 self.labels_notes_poomsaes[1].set_text("Note Poomsae 2 : \n {}".format(note_poomsae_en_cours))
-                self.labels_poomsaes_sur_vc[1].set_markup("""Poomsae <span foreground="black">{}</span>""".format(self.poomsae1_en_cours))
-                self.labels_poomsaes_sur_vc[0].set_markup("""Poomsae <span foreground="red">{}</span>""".format(self.poomsae2_en_cours))
                 self.index_poomsae_en_cours=0
                 self.passage_termine=True
 
@@ -207,7 +205,7 @@ class GestionnaireUI():
             md.format_secondary_text("Tous les compétiteurs de la catégorie sont passés")
             md.run()
             md.hide()
-            
+
 # initialisation : 
 # - remettre a False self.passage_termine 
 # - remettre a 0 index poomsae en cours
