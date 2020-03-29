@@ -30,9 +30,12 @@ class GestionnaireUI():
         self.notes_valides=False
 
         #stockage des ID des widgets
+        self.labels_nom_prenom={'admin':None,'VC':None}     
+        self.labels_ordre_tour={'tour_admin':None,'ordre_admin':None,'tour_cat_VC':None}
         self.entries_arbitres=[]
         self.labels_notes_poomsaes=[]
         self.labels_poomsaes_sur_vc=[]
+
 
 #------------Callbacks du bouton Valider rubrique choix catégorie/poomsae-----------------#
     def get_categorie_en_cours(self,cbbox):
@@ -49,6 +52,9 @@ class GestionnaireUI():
     
     def initialiser_competiteur_en_cours(self,l_nom_prenom):
         """affiche l'identité du 1er compétiteur de la catégorie dans le label de l'UI admin"""
+        if self.labels_nom_prenom['admin']==None:
+            self.labels_nom_prenom['admin']=l_nom_prenom
+
         try:
             self.competiteur_en_cours=self.competiteurs_par_categorie[self.categorie_en_cours][0]
             l_nom_prenom.set_text("{} {}".format(self.competiteur_en_cours.nom,self.competiteur_en_cours.prenom))
@@ -64,11 +70,17 @@ class GestionnaireUI():
 
     def initialiser_ordre_passage(self,l_ordre_passage):
         """initialise l'ordre de passage et l'affiche dans le label de l'UI admin"""
+        if self.labels_ordre_tour["ordre_admin"]==None:
+            self.labels_ordre_tour["ordre_admin"]=l_ordre_passage
+
         self.nb_competiteur_categorie_en_cours=len(self.competiteurs_par_categorie[self.categorie_en_cours])
         self.ordre_passage_competiteur_en_cours=1
         l_ordre_passage.set_text("{}/{}".format(self.ordre_passage_competiteur_en_cours,self.nb_competiteur_categorie_en_cours))
 
     def initialiser_tour_en_cours(self,l_tour_en_cours):
+        if self.labels_ordre_tour["tour_admin"]==None:
+            self.labels_ordre_tour["tour_admin"]=l_tour_en_cours
+
         if len(self.competiteurs_par_categorie[self.categorie_en_cours])<=20:
             self.tour_en_cours="Demi-Finale"
         else :
@@ -77,8 +89,14 @@ class GestionnaireUI():
 
     #initialisation des labels sur la vue competiteur
     def set_identite_competiteur_su_vc(self,l_identite_competiteur_vc):
+        if self.labels_nom_prenom['VC']==None:
+            self.labels_nom_prenom['VC']=l_identite_competiteur_vc        
+        
         l_identite_competiteur_vc.set_text("{} {}".format(self.competiteur_en_cours.nom,self.competiteur_en_cours.prenom))
     def set_tour_categorie_sur_vc(self,l_tour_categorie_vc):
+        if self.labels_ordre_tour['tour_cat_VC']==None:
+            self.labels_ordre_tour['tour_cat_VC']=l_tour_categorie_vc
+            
         l_tour_categorie_vc.set_text("{}  {}".format(self.tour_en_cours,self.categorie_en_cours))
     def set_poomsae1_sur_vc(self,l_poomsae1_vc):
         """Affiche le nom du 1er poomsae sur la vue compétiteur, et stocke l'ID du label"""
@@ -191,13 +209,18 @@ class GestionnaireUI():
                 self.index_poomsae_en_cours=0
                 self.passage_termine=True
 
-# ajouter un message d erreur si validation alors que les notes sont déja validées
-
 #-------------------Callbacks compétiteur suivant-------------------------------------------#
 
     def message_competiteur_suivant_invalide(self,md):
-        """affiche une boite de dialogue d'erreur si le compétiteur en cours n'a pas terminé son passage ou si tous les compétiteurs sont passés"""
-        if self.passage_termine==False:
+        """affiche une boite de dialogue d'erreur si :
+            - aucune catégorie n'est sélectionnée
+            -le compétiteur en cours n'a pas terminé son passage ou 
+            - tous les compétiteurs sont passés"""
+        if self.categorie_en_cours=="":
+            md.format_secondary_text("aucune catégorie n'a été sélectionnée")
+            md.run()
+            md.hide()            
+        elif self.passage_termine==False:
             md.format_secondary_text("{} {} n'a pas terminé son passage".format(self.competiteur_en_cours.nom,self.competiteur_en_cours.prenom))
             md.run()
             md.hide()
@@ -205,6 +228,7 @@ class GestionnaireUI():
             md.format_secondary_text("Tous les compétiteurs de la catégorie sont passés")
             md.run()
             md.hide()
+
 
 # initialisation : 
 # - remettre a False self.passage_termine 
