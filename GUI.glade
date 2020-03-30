@@ -665,6 +665,7 @@ N/A</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <signal name="clicked" handler="message_competiteur_suivant_invalide" object="md" swapped="no"/>
+                        <signal name="clicked" handler="reinitialiser_labels" object="l_note_vc" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>

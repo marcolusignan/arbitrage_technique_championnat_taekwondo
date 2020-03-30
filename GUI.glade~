@@ -44,7 +44,6 @@
             <property name="justify">right</property>
             <attributes>
               <attribute name="scale" value="2"/>
-              <attribute name="foreground" value="#a4a400000000"/>
             </attributes>
           </object>
           <packing>
@@ -666,6 +665,7 @@ N/A</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <signal name="clicked" handler="message_competiteur_suivant_invalide" object="md" swapped="no"/>
+                        <signal name="clicked" handler="vider_labels_notes" object="l_note_vc" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>

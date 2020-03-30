@@ -1,5 +1,6 @@
 #!/usr/bin/python3.6
 # -*-coding:Utf-8 -*
+
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
@@ -35,7 +36,6 @@ class GestionnaireUI():
         self.entries_arbitres=[]
         self.labels_notes_poomsaes=[]
         self.labels_poomsaes_sur_vc=[]
-
 
 #------------Callbacks du bouton Valider rubrique choix catégorie/poomsae-----------------#
     def get_categorie_en_cours(self,cbbox):
@@ -216,6 +216,7 @@ class GestionnaireUI():
             - aucune catégorie n'est sélectionnée
             -le compétiteur en cours n'a pas terminé son passage ou 
             - tous les compétiteurs sont passés"""
+       
         if self.categorie_en_cours=="":
             md.format_secondary_text("aucune catégorie n'a été sélectionnée")
             md.run()
@@ -229,14 +230,22 @@ class GestionnaireUI():
             md.run()
             md.hide()
 
+    def reinitialiser_labels(self,l_note_vc):
+        if self.passage_termine==True and self.ordre_passage_competiteur_en_cours<self.nb_competiteur_categorie_en_cours:
+            #remet à 0 les labels notes 
+            l_note_vc.set_text('00.00')
+            self.labels_notes_poomsaes[0].set_text("N/A")
+            self.labels_notes_poomsaes[1].set_text("N/A")
+            
+            #met a jour le competiteur en cours et son nom sur les labels identité
+            self.competiteur_en_cours=self.competiteurs_par_categorie[self.categorie_en_cours][self.ordre_passage_competiteur_en_cours]
+            self.labels_nom_prenom['admin'].set_text("{} {}".format(self.competiteur_en_cours.nom, self.competiteur_en_cours.prenom))
+            self.labels_nom_prenom['VC'].set_text("{} {}".format(self.competiteur_en_cours.nom, self.competiteur_en_cours.prenom))
+            
+            #met à jour l'ordre de passage
+            self.ordre_passage_competiteur_en_cours+=1
+            self.labels_ordre_tour['ordre_admin'].set_text("{}/{}".format(self.ordre_passage_competiteur_en_cours,self.nb_competiteur_categorie_en_cours))
 
-# initialisation : 
-# - remettre a False self.passage_termine 
-# - remettre a 0 index poomsae en cours
-# - vider les labels note poomsae 1 et note poomsae 2
-# - vider le label note sur vc
-# 
-# chargement du competiteur suivant(modifier self.competiteur_en_cours) et mise a jour des labels :
-#   - nom prenom sur UI admin
-#   - nom prenom sur vc
-#   - incrementer self.ordre_passage_competiteur_en_cours et mettre a jour label ordre passage
+            self.passage_termine=False
+
+
