@@ -111,7 +111,6 @@ class GestionnaireUI():
         if len(self.labels_poomsaes_sur_vc)<2:
             self.labels_poomsaes_sur_vc.append(l_poomsae2_vc)
    
-
 #--------------Callbacks des notes arbitres-----------------------------------------------#
 
     def get_note_arbitre_1(self,e_arb1):
@@ -234,6 +233,9 @@ class GestionnaireUI():
         if self.passage_termine==True and self.ordre_passage_competiteur_en_cours<self.nb_competiteur_categorie_en_cours:
             #remet à 0 les labels notes 
             l_note_vc.set_text('00.00')
+            if self.nb_poomsae_a_presenter==2:
+                self.labels_poomsaes_sur_vc[1].set_markup("""Poomsae <span foreground="black">{}</span>""".format(self.poomsae1_en_cours))
+                self.labels_poomsaes_sur_vc[0].set_markup("""Poomsae <span foreground="red">{}</span>""".format(self.poomsae2_en_cours))
             self.labels_notes_poomsaes[0].set_text("N/A")
             self.labels_notes_poomsaes[1].set_text("N/A")
             
